@@ -37,7 +37,7 @@ export default function Footer() {
         </button>
       )}
 
-      <footer className="bg-[#fcbf49]">
+      <footer className="bg-dark-bg backdrop-blur-md bg-black/80">
         <div className="max-w-2xl mx-auto px-6 py-8">    
           <div className="flex flex-col items-center gap-4">
             <div className="text-white text-sm text-center">

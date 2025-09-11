@@ -15,7 +15,7 @@ export default function CTA() {
   return (
     <section
       id="pricing"
-      className="py-32 bg-[#fcbf49] relative overflow-hidden"
+      className="py-32 bg-[#fca311] relative overflow-hidden"
       aria-labelledby="pricing-heading"
     >
       <div className="max-w-4xl mx-auto px-6 text-center relative z-10">

@@ -55,7 +55,7 @@ export default function Header() {
           </Link>
           <a
             href="#download"
-            className="bg-[#fcbf49] text-white hover:bg-[#fcbf49] px-6 py-2 rounded-lg font-medium transition-colors ml-4 flex items-center gap-2"
+            className="bg-[#fca311] text-white hover:bg-[#fcbf49] px-6 py-2 rounded-lg font-medium transition-colors ml-4 flex items-center gap-2"
           >
             <span>Download</span>
           </a>
