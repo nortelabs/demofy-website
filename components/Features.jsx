@@ -21,7 +21,7 @@ const FEATURES = [
     id: "record",
     title: "One-Click Recording",
     description:
-      "Capture crisp videos directly from the iPhone simulator without any command line — fast and reliable.",
+      "Capture crisp videos directly from the Xcode Simulator on macOS — fast and reliable.",
     icon: "📹",
   },
   {

@@ -24,7 +24,7 @@ export default function Home() {
         <title>Mockup and Demo Generator</title>
         <meta
           name="description"
-          content="Demofy is a sleek macOS app that makes it effortless to showcase your iOS apps. Record from the simulator, frame your video, trim and export — all in one app."
+          content="Demofy is a sleek macOS app that makes it effortless to showcase your iOS apps. Record from the Xcode Simulator on macOS, frame your video, trim, and export — all in one app."
         />
         <meta name="theme-color" content="#db7536" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />

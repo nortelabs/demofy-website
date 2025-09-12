@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
         <title>Record Mockups</title>
         <meta
           name="description"
-          content="Demofy is a sleek macOS app that makes it effortless to showcase your iOS apps. Record from the simulator, frame your video, trim and export — all in one app."
+          content="Demofy is a sleek macOS app that makes it effortless to showcase your iOS apps. Record from the Xcode Simulator on macOS, frame your video, trim, and export — all in one app."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
