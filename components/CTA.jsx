@@ -15,7 +15,7 @@ export default function CTA() {
   return (
     <section
       id="pricing"
-      className="py-32 bg-dark-bg relative overflow-hidden"
+      className="py-30 bg-dark-bg relative overflow-hidden"
       aria-labelledby="pricing-heading"
     >
       {/* Background effects */}
@@ -30,69 +30,128 @@ export default function CTA() {
           transition={{ duration: 0.45, ease: "easeOut" }}
           className="mb-12"
         >
-          <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect mb-8">
-            <span className="text-sm text-platinum font-medium">Simple Pricing</span>
+          <div className="inline-flex items-center px-6 py-3 rounded-full glass-effect mb-8">
+            <span className="text-lg text-platinum font-medium">Simple Pricing</span>
           </div>
-          <h2
-            id="pricing-heading"
-            className="text-5xl sm:text-6xl lg:text-7xl font-black mb-8"
-          >
-            <span className="text-white">Ready to create</span>
-            <br />
-            <span className="gradient-text">amazing demos?</span>
-          </h2>
+         
         </motion.div>
 
-        <motion.div
-          className="glass-effect rounded-3xl p-12 mb-12 max-w-2xl mx-auto border border-oxford-blue/30"
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5, delay: 0.12 }}
-        >
-          <div className="text-center mb-8">
-            <div className="text-6xl font-black text-white mb-2">$9.99</div>
-            <div className="text-xl text-platinum">One-time payment • No subscriptions</div>
-          </div>
-
-          <ul className="text-left space-y-4 mb-8 text-platinum">
-            <li className="flex items-center gap-3">
-              <div className="w-5 h-5 bg-orange-web rounded-full flex items-center justify-center">
-                <svg className="w-3 h-3 text-black" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-              </div>
-              Record from iOS Simulator
-            </li>
-            <li className="flex items-center gap-3">
-              <div className="w-5 h-5 bg-orange-web rounded-full flex items-center justify-center">
-                <svg className="w-3 h-3 text-black" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-              </div>
-              20+ iPhone Frame Designs
-            </li>
-            <li className="flex items-center gap-3">
-              <div className="w-5 h-5 bg-orange-web rounded-full flex items-center justify-center">
-                <svg className="w-3 h-3 text-black" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-              </div>
-              Export as MP4 or MOV
-            </li>
-          </ul>
-
-          <a
-            href="#download"
-            className="btn-primary text-xl w-full py-4 inline-flex items-center justify-center gap-3"
-            aria-label="Download Demofy for macOS"
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {/* Free Plan */}
+          <motion.div
+            className="glass-effect rounded-3xl p-8 border border-oxford-blue/30"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.12 }}
           >
-            Buy Demofy 
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </a>
-        </motion.div>
+            <div className="text-center mb-6">
+              <div className="text-4xl font-black text-white mb-2">Free</div>
+              <div className="text-lg text-platinum">Perfect for trying out</div>
+            </div>
+
+            <ul className="text-left space-y-3 mb-8 text-platinum">
+              <li className="flex items-center gap-3">
+                <div className="w-5 h-5 bg-orange-web rounded-full flex items-center justify-center">
+                  <svg className="w-3 h-3 text-black" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                Record from iOS Simulator
+              </li>
+              <li className="flex items-center gap-3">
+                <div className="w-5 h-5 bg-orange-web rounded-full flex items-center justify-center">
+                  <svg className="w-3 h-3 text-black" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                Live preview with frames
+              </li>
+              <li className="flex items-center gap-3">
+                <div className="w-5 h-5 bg-orange-web rounded-full flex items-center justify-center">
+                  <svg className="w-3 h-3 text-black" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                20+ iPhone Frame Designs
+              </li>
+              <li className="flex items-center gap-3">
+                <div className="w-5 h-5 bg-oxford-blue/50 rounded-full flex items-center justify-center">
+                  <svg className="w-3 h-3 text-platinum/50" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <span className="line-through text-platinum/50">Export videos</span>
+              </li>
+            </ul>
+
+            <a
+              href="#download"
+              className="btn-secondary text-lg w-full py-3 inline-flex items-center justify-center gap-3"
+              aria-label="Download Demofy for free"
+            >
+              Download Free
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+            </a>
+          </motion.div>
+
+          {/* Pro Plan */}
+          <motion.div
+            className="glass-effect rounded-3xl p-8 border-2 border-orange-web/50 relative"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.24 }}
+          >
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+              <div className="bg-orange-web text-black text-sm font-bold px-4 py-1 rounded-full">
+                POPULAR
+              </div>
+            </div>
+
+            <div className="text-center mb-6">
+              <div className="text-4xl font-black text-white mb-2">$9.99</div>
+              <div className="text-lg text-platinum">
+                One-time payment • No subscriptions •
+                <br />
+                <b>30 day money back guarantee</b>
+              </div>
+            </div>
+
+            <ul className="text-left space-y-3 mb-8 text-platinum">
+              <li className="flex items-center gap-3">
+                <div className="w-5 h-5 bg-orange-web rounded-full flex items-center justify-center">
+                  <svg className="w-3 h-3 text-black" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                Everything in Free
+              </li>
+             
+              <li className="flex items-center gap-3">
+                <div className="w-5 h-5 bg-orange-web rounded-full flex items-center justify-center">
+                  <svg className="w-3 h-3 text-black" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                HD Exports as MP4 or MOV 
+              </li>
+            </ul>
+
+            <a
+              href="#download"
+              className="btn-primary text-lg w-full py-3 inline-flex items-center justify-center gap-3"
+              aria-label="Buy Demofy Pro"
+            >
+              Buy Demofy Pro
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

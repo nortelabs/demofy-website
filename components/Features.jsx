@@ -21,22 +21,25 @@ const FEATURES = [
     id: "record",
     title: "Record iOS Simulator",
     description:
-      "Capture crisp videos directly from the Xcode Simulator on macOS — fast and reliable.",
+      "Capture crisp videos directly from the Xcode Simulator on macOS — fast and reliable. Free forever.",
     icon: "📹",
+    isFree: true,
   },
   {
     id: "frames",
-    title: "20+ iPhone Frames",
+    title: "Live Preview with Frames",
     description:
-      "Choose from over 20 beautiful iPhone frame designs to showcase your app in style.",
+      "Preview your recordings with beautiful iPhone frames in real-time. Try before you buy.",
     icon: "📱",
+    isFree: true,
   },
   {
     id: "export",
     title: "Export as MP4 or MOV",
     description:
-      "Export your demos in high-quality MP4 or MOV formats, perfect for sharing and presentations.",
+      "Export your demos in high-quality MP4 or MOV formats, perfect for sharing and presentations. Pro feature.",
     icon: "⚡",
+    isFree: false,
   },
 ];
 
@@ -98,9 +101,7 @@ export default function Features() {
                         {f.icon}
                       </span>
                     </div>
-                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-orange-web rounded-full flex items-center justify-center">
-                      <span className="text-xs font-bold text-black">{index + 1}</span>
-                    </div>
+                  
                   </div>
 
                   <h3
