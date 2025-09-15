@@ -51,7 +51,7 @@ export default function CTA() {
           transition={{ duration: 0.5, delay: 0.12 }}
         >
           <div className="text-center mb-8">
-            <div className="text-6xl font-black text-white mb-2">$20</div>
+            <div className="text-6xl font-black text-white mb-2">$9.99</div>
             <div className="text-xl text-platinum">One-time payment • No subscriptions</div>
           </div>
 
