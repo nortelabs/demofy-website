@@ -28,20 +28,29 @@ export default function Footer() {
       {showBackToTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-50 bg-[#DB7536] hover:bg-[#c4622a] text-white p-3 rounded-full shadow-lg transition-all duration-300 ease-in-out"
+          className="fixed bottom-6 right-6 z-50 bg-oxford-blue hover:bg-oxford-blue/80 text-white p-4 rounded-2xl shadow-xl backdrop-blur-sm border border-orange-web/30 transition-all duration-300 ease-in-out hover:scale-110 glow-pulse"
           aria-label="Back to top"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
           </svg>
         </button>
       )}
 
-      <footer className="bg-dark-bg backdrop-blur-md bg-black/80">
-        <div className="max-w-2xl mx-auto px-6 py-8">    
-          <div className="flex flex-col items-center gap-4">
-            <div className="text-white text-sm text-center">
-              © {year} Demofy. All rights reserved.
+      <footer className="bg-dark-bg border-t border-oxford-blue/50 relative">
+        <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-5"></div>
+        <div className="max-w-7xl mx-auto px-6 py-16 relative z-10">
+          <div className="text-center">
+      
+
+           
+
+
+            {/* Copyright */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="text-platinum text-sm">
+                © {year} Demofy. All rights reserved.
+              </div>
             </div>
           </div>
         </div>

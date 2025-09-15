@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 export default function DemoVideo() {
   return (
     <section
-      id="features"
+      id="demo-video"
       className="py-24 bg-white border-t border-gray-200"
       aria-labelledby="features-heading"
     >

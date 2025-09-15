@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        
+        <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
         <title>Mockup and Demo Generator</title>
         <meta
           name="description"
@@ -47,7 +47,7 @@ export default function Home() {
         <DemoVideo />
 
         {/* Feature grid */}
-        {/* <Features /> */}
+        <Features />
 
         {/* Call to action */}
         <CTA />

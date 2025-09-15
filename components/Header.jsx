@@ -30,34 +30,23 @@ export default function Header() {
   }, [router.events]);
 
   return (
-    <header className="bg-dark-bg z-40 fixed w-full top-0 backdrop-blur-md bg-black/80">
-      <div className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+    <header className="bg-dark-bg/90 z-40 fixed w-full top-0 backdrop-blur-xl border-b border-oxford-blue/50">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Link href="/" legacyBehavior>
-            <a className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary rounded">
-              <span className="font-bold text-white text-2xl md:text-3xl">Demofy</span>
+            <a className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-web rounded-lg">
+              
+              <span className="font-bold text-white text-2xl">Demofy</span>
             </a>
           </Link>
         </div>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-10">
-          <Link href="#features" legacyBehavior>
-            <a className="text-white text-lg hover:text-gray-300 transition-colors">Features</a>
-          </Link>
-          <Link href="#pricing" legacyBehavior>
-            <a className="text-white text-lg hover:text-gray-300 transition-colors">Pricing</a>
-          </Link>
-          <Link href="#help" legacyBehavior>
-            <a className="text-white text-lg hover:text-gray-300 transition-colors flex items-center gap-1">
-             Contact Us
-            </a>
-          </Link>
-          <a
-            href="#download"
-            className="bg-[#fca311] text-white hover:bg-[#fcbf49] px-6 py-2 rounded-lg font-medium transition-colors ml-4 flex items-center gap-2"
-          >
-            <span>Download</span>
+        <nav className="hidden md:flex items-center gap-8">
+          <a href="#features" className="text-platinum hover:text-orange-web transition-colors duration-300 font-medium">Features</a>
+          <a href="#pricing" className="text-platinum hover:text-orange-web transition-colors duration-300 font-medium">Pricing</a>
+          <a href="#help" className="text-platinum hover:text-orange-web transition-colors duration-300 font-medium">
+             Contact
           </a>
         </nav>
 
@@ -65,17 +54,16 @@ export default function Header() {
         <div className="md:hidden flex items-center gap-2">
           <a
             href="#download"
-            className="bg-[#fcbf49] text-white hover:bg-[#fcbf49] text-sm px-4 py-2 rounded-lg font-medium transition-colors hidden sm:inline-flex items-center gap-1"
+            className="btn-primary text-sm px-4 py-2 hidden sm:inline-flex"
           >
-            <span>Download</span>
-            <span className="text-xs text-white/80">Free</span>
+            Download
           </a>
 
           <button
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="p-2 rounded-md inline-flex items-center justify-center text-dark-text hover:text-white hover:bg-dark-card focus:outline-none focus:ring-2 focus:ring-primary"
+            className="p-2 rounded-lg inline-flex items-center justify-center text-platinum hover:text-white hover:bg-oxford-blue focus:outline-none focus:ring-2 focus:ring-orange-web transition-colors duration-300"
           >
             {/* Hamburger / Close icon */}
             <svg
@@ -113,42 +101,33 @@ export default function Header() {
         aria-hidden={!open}
       >
         <div className="px-6 pb-6">
-          <div className="bg-dark-card rounded-lg border border-dark-border shadow-sm p-4">
-            <nav className="flex flex-col gap-3">
-              <Link href="#features" legacyBehavior>
-                <a
-                  onClick={() => setOpen(false)}
-                  className="block px-3 py-2 rounded-md text-white hover:text-gray-300 hover:bg-gray-800"
-                >
-                  Features
-                </a>
-              </Link>
-
-              <Link href="#pricing" legacyBehavior>
-                <a
-                  onClick={() => setOpen(false)}
-                  className="block px-3 py-2 rounded-md text-white hover:text-gray-300 hover:bg-gray-800"
-                >
-                  Pricing
-                </a>
-              </Link>
-
-              <Link href="#help" legacyBehavior>
-                <a
-                  onClick={() => setOpen(false)}
-                  className="block px-3 py-2 rounded-md text-white hover:text-gray-300 hover:bg-gray-800"
-                >
-                  Contact Us
-                </a>
-              </Link>
+          <div className="glass-effect rounded-2xl p-6">
+            <nav className="flex flex-col gap-4">
+              <a
+                href="#features"
+                onClick={() => setOpen(false)}
+                className="block px-4 py-3 rounded-xl text-white hover:text-orange-web hover:bg-oxford-blue/50 transition-all duration-300 font-medium"
+              >
+                Features
+              </a>
 
               <a
-                href="#download"
+                href="#pricing"
                 onClick={() => setOpen(false)}
-                className="mt-2 bg-[#DB7536] text-white hover:bg-[#c4622a] px-4 py-2 rounded-lg font-medium transition-colors inline-flex items-center justify-center gap-2"
+                className="block px-4 py-3 rounded-xl text-white hover:text-orange-web hover:bg-oxford-blue/50 transition-all duration-300 font-medium"
               >
-                <span>Download</span>
+                Pricing
               </a>
+
+              <a
+                href="#help"
+                onClick={() => setOpen(false)}
+                className="block px-4 py-3 rounded-xl text-white hover:text-orange-web hover:bg-oxford-blue/50 transition-all duration-300 font-medium"
+              >
+                Contact
+              </a>
+
+           
             </nav>
           </div>
         </div>

@@ -19,45 +19,24 @@ import { motion } from "framer-motion";
 const FEATURES = [
   {
     id: "record",
-    title: "One-Click Recording",
+    title: "Record iOS Simulator",
     description:
       "Capture crisp videos directly from the Xcode Simulator on macOS — fast and reliable.",
     icon: "📹",
   },
   {
-    id: "frame",
-    title: "Beautiful Mockups",
+    id: "frames",
+    title: "20+ iPhone Frames",
     description:
-      "Instantly place your recordings inside a clean, minimal phone mockup for polished screenshots and presentations.",
+      "Choose from over 20 beautiful iPhone frame designs to showcase your app in style.",
     icon: "📱",
   },
   {
     id: "export",
-    title: "Smart Export",
+    title: "Export as MP4 or MOV",
     description:
-      "Trim your demo to the perfect length and export in web-ready formats (MP4, GIF) with sensible presets.",
+      "Export your demos in high-quality MP4 or MOV formats, perfect for sharing and presentations.",
     icon: "⚡",
-  },
-  {
-    id: "professional",
-    title: "Professional Quality",
-    description:
-      "Generate marketing-ready content with pixel-perfect precision and consistent branding across all your demos.",
-    icon: "✨",
-  },
-  {
-    id: "workflow",
-    title: "Seamless Workflow",
-    description:
-      "Integrate effortlessly into your development process with automated export pipelines and batch processing.",
-    icon: "🔄",
-  },
-  {
-    id: "collaboration",
-    title: "Team Collaboration",
-    description:
-      "Share templates and export presets with your team to maintain consistency across all product demos.",
-    icon: "👥",
   },
 ];
 
@@ -77,70 +56,63 @@ const card = {
 
 export default function Features() {
   return (
-    <section id="features" className="py-24 bg-dark-bg">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="features" className="py-32 bg-dark-bg relative">
+      <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-20"></div>
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.18 }}
           variants={container}
         >
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
-              <span className="gradient-text">Everything you need</span>
+          <div className="text-center mb-24">
+            <div className="inline-flex items-center px-4 py-2 rounded-full glass-effect mb-8">
+              <span className="text-sm text-platinum font-medium">Core Features</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-8">
+              <span className="text-white">Everything you need</span>
               <br />
               <span className="gradient-text">to create perfect demos</span>
             </h2>
-            <p className="text-xl text-dark-text max-w-3xl mx-auto leading-relaxed">
-              Built for developers and designers who demand professional results without the complexity.
+            <p className="text-xl text-platinum max-w-3xl mx-auto leading-relaxed">
+              Professional demo creation tools designed for developers and designers who demand quality.
             </p>
           </div>
 
           <motion.div
-            className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+            className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
             variants={container}
           >
-            {FEATURES.map((f) => (
+            {FEATURES.map((f, index) => (
               <motion.article
                 key={f.id}
-                className="bg-dark-card/30 p-8 rounded-2xl border border-dark-border/50 backdrop-blur-sm hover:bg-dark-card/50 transition-all duration-300"
+                className="group relative p-8 rounded-3xl glass-effect hover:tech-border transition-all duration-500 hover:transform hover:scale-105"
                 variants={card}
                 role="article"
                 aria-labelledby={`feature-${f.id}-title`}
               >
                 <div className="text-center">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-orange flex items-center justify-center mb-6 mx-auto">
-                    <span className="text-2xl" aria-hidden="true">
-                      {f.icon}
-                    </span>
+                  <div className="relative mb-8">
+                    <div className="w-20 h-20 rounded-2xl bg-oxford-blue/30 border border-oxford-blue/50 flex items-center justify-center mb-6 mx-auto group-hover:bg-oxford-blue/50 transition-colors duration-300">
+                      <span className="text-3xl" aria-hidden="true">
+                        {f.icon}
+                      </span>
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-orange-web rounded-full flex items-center justify-center">
+                      <span className="text-xs font-bold text-black">{index + 1}</span>
+                    </div>
                   </div>
 
                   <h3
                     id={`feature-${f.id}-title`}
-                    className="text-xl font-bold text-white mb-4"
+                    className="text-2xl font-bold text-white mb-4 group-hover:text-orange-web transition-colors duration-300"
                   >
                     {f.title}
                   </h3>
-                  <p className="text-dark-text leading-relaxed">{f.description}</p>
+                  <p className="text-platinum leading-relaxed text-lg">{f.description}</p>
                 </div>
               </motion.article>
             ))}
-          </motion.div>
-
-          {/* Additional CTA section */}
-          <motion.div
-            className="text-center mt-16"
-            variants={card}
-          >
-            <a
-              href="#download"
-              className="btn-primary text-lg px-10 py-4 inline-flex items-center gap-3"
-            >
-              Start Creating Amazing Demos
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </a>
           </motion.div>
         </motion.div>
       </div>
