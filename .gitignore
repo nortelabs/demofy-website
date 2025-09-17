@@ -102,3 +102,6 @@ jspm_packages/
 .tern-port
 
 *.md
+
+.env.local.example
+.env.local

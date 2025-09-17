@@ -10,13 +10,18 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "^13.4.10",
+    "@vercel/analytics": "^1.5.0",
+    "autoprefixer": "^10.4.14",
+    "convex": "^1.27.0",
+    "cors": "^2.8.5",
+    "express-rate-limit": "^8.1.0",
+    "framer-motion": "^7.6.6",
+    "next": "^15.5.3",
+    "postcss": "^8.4.24",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "framer-motion": "^7.6.6",
-    "tailwindcss": "^3.4.8",
-    "postcss": "^8.4.24",
-    "autoprefixer": "^10.4.14"
+    "stripe": "^18.5.0",
+    "tailwindcss": "^3.4.8"
   },
   "devDependencies": {
     "eslint": "^8.39.0",

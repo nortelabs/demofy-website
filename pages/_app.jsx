@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
+import { Analytics } from "@vercel/analytics/next";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
@@ -32,6 +33,7 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </motion.div>
       </AnimatePresence>
+      <Analytics />
     </>
   );
 }
