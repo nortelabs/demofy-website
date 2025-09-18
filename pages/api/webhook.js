@@ -1,9 +1,12 @@
 // pages/api/webhook.js
 // Stripe webhook handler for Next.js
 
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-const { ConvexHttpClient } = require("convex/browser");
+import Stripe from 'stripe';
+import crypto from 'crypto';
+import { ConvexHttpClient } from "convex/browser";
 import { setSecurityHeaders } from '../../lib/security';
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 // Initialize Convex client
 const convex = new ConvexHttpClient(process.env.CONVEX_URL);
@@ -200,7 +203,6 @@ async function handlePaymentFailed(paymentIntent) {
 
 // Generate license key using cryptographically secure random generation
 function generateLicenseKey() {
-  const crypto = require('crypto');
   const segments = [];
   const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   

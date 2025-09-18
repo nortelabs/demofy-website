@@ -1,7 +1,7 @@
 // pages/api/license.js
 // API endpoint to fetch license keys
 
-const { ConvexHttpClient } = require("convex/browser");
+import { ConvexHttpClient } from "convex/browser";
 import { runMiddleware, rateLimiter, corsMiddleware, setSecurityHeaders } from '../../lib/security';
 
 // Initialize Convex client

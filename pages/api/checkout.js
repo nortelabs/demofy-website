@@ -1,8 +1,10 @@
 // pages/api/checkout.js
 // Next.js API route for handling Stripe checkout
 
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+import Stripe from 'stripe';
 import { runMiddleware, paymentRateLimiter, corsMiddleware, setSecurityHeaders } from '../../lib/security';
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
   // Apply security headers
