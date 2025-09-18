@@ -5,7 +5,6 @@ import Hero from "../components/Hero";
 import DemoVideo from "../components/DemoVideo";
 import Features from "../components/Features";
 import CTA from "../components/CTA";
-import EmailSignup from "../components/EmailSignup";
 import Footer from "../components/Footer";
 
 /**
@@ -52,13 +51,6 @@ export default function Home() {
 
         {/* Call to action */}
         <CTA />
-
-        {/* Email signup section */}
-        <section className="py-20 bg-dark-bg">
-          <div className="max-w-2xl mx-auto px-6">
-            <EmailSignup />
-          </div>
-        </section>
       </main>
 
       <Footer />
