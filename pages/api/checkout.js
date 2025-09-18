@@ -42,8 +42,6 @@ export default async function handler(req, res) {
       });
     }
 
-    console.log('Creating Stripe checkout session for price:', priceId);
-
     // Create Stripe checkout session directly
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
@@ -64,8 +62,6 @@ export default async function handler(req, res) {
         ...metadata
       }
     });
-
-    console.log('Stripe session created:', session.id);
 
     res.json({
       success: true,

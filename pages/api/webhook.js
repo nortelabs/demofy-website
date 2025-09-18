@@ -41,11 +41,8 @@ export default async function handler(req, res) {
     return res.status(400).send(`Webhook Error: ${err.message}`);
   }
 
-  console.log(`Received webhook event: ${event.type} (${event.id})`);
-
   try {
     // First, store the webhook event in Convex
-    console.log('Storing webhook event in Convex...');
     await convex.mutation("stripe:storeWebhookEvent", {
       eventId: event.id,
       eventType: event.type,
@@ -66,7 +63,6 @@ export default async function handler(req, res) {
         result = await handlePaymentFailed(event.data.object);
         break;
       default:
-        console.log(`Unhandled webhook event type: ${event.type}`);
         result = { processed: true, reason: 'unhandled_event_type' };
     }
 
@@ -114,29 +110,23 @@ async function getRawBody(req) {
 
 // Handle checkout session completed
 async function handleCheckoutCompleted(session) {
-  console.log('Checkout session completed:', session.id);
-  
   // Generate license key
   const licenseKey = generateLicenseKey();
-  console.log('Generated license key for session:', session.id);
   
   // Create order record (use order id from metadata if present)
   const orderId = session.metadata?.orderId || `order_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-  console.log('Using order ID:', orderId);
   
   try {
     // Check if order already exists
-    console.log('Checking if order exists...');
     let existingOrder = null;
     try {
       existingOrder = await convex.query("stripe:getOrder", { orderId });
     } catch (e) {
-      console.log('Error checking existing order:', e.message);
+      // Order check failed, continue with creation
     }
 
     if (!existingOrder) {
       // Create order in Convex
-      console.log('Creating order in Convex...');
       try {
         const orderResult = await convex.mutation("stripe:createOrder", {
           orderId,
@@ -151,13 +141,10 @@ async function handleCheckoutCompleted(session) {
             source: 'stripe_checkout'
           }
         });
-        console.log('Order created successfully:', orderResult);
       } catch (e) {
-        console.log('createOrder failed:', e.message);
         throw e;
       }
     } else {
-      console.log('Order already exists, updating status...');
       // Update existing order status
       try {
         await convex.mutation("stripe:updateOrderStatus", {
@@ -165,14 +152,12 @@ async function handleCheckoutCompleted(session) {
           status: 'completed',
           paymentIntentId: session.payment_intent
         });
-        console.log('Order status updated successfully');
       } catch (e) {
-        console.log('updateOrderStatus failed:', e.message);
+        // Status update failed, continue
       }
     }
 
     // Create license key in Convex
-    console.log('Creating license key in Convex...');
     const licenseKeyId = await convex.mutation("licenseKeys:createLicenseKey", {
       key: licenseKey,
       metadata: {
@@ -181,58 +166,51 @@ async function handleCheckoutCompleted(session) {
         notes: `Generated for order ${orderId}`
       }
     });
-    console.log('License key created successfully:', licenseKeyId);
 
     // Update order with session id and license key
-    console.log('Updating order with session ID...');
     try {
       await convex.mutation("stripe:updateOrderSession", { orderId, sessionId: session.id });
-      console.log('Order session updated successfully');
     } catch (e) {
-      console.log('updateOrderSession failed:', e.message);
+      // Session update failed, continue
     }
     
-    console.log('Updating order with license key...');
     try {
       await convex.mutation("stripe:updateOrderLicenseKey", { orderId, licenseKeyId: licenseKeyId.id });
-      console.log('Order license key updated successfully');
     } catch (e) {
-      console.log('updateOrderLicenseKey failed:', e.message);
+      // License key update failed, continue
     }
-
-    console.log('License key generated successfully for order:', orderId);
     return { processed: true, orderId, licenseKeyId };
 
   } catch (error) {
     console.error('Error creating order/license:', error);
-    console.error('Error stack:', error.stack);
     throw error;
   }
 }
 
 // Handle payment succeeded
 async function handlePaymentSucceeded(paymentIntent) {
-  console.log('Payment succeeded:', paymentIntent.id);
-  
-  // For now, just log - the checkout.session.completed should handle license generation
+  // For now, just return - the checkout.session.completed should handle license generation
   return { processed: true, reason: 'payment_succeeded' };
 }
 
 // Handle payment failed
 async function handlePaymentFailed(paymentIntent) {
-  console.log('Payment failed:', paymentIntent.id);
   return { processed: true, reason: 'payment_failed' };
 }
 
-// Generate license key
+// Generate license key using cryptographically secure random generation
 function generateLicenseKey() {
+  const crypto = require('crypto');
   const segments = [];
   const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   
   for (let i = 0; i < 4; i++) {
     let segment = "";
     for (let j = 0; j < 4; j++) {
-      segment += chars.charAt(Math.floor(Math.random() * chars.length));
+      // Use crypto.randomBytes for cryptographically secure random generation
+      const randomBytes = crypto.randomBytes(1);
+      const randomIndex = randomBytes[0] % chars.length;
+      segment += chars.charAt(randomIndex);
     }
     segments.push(segment);
   }

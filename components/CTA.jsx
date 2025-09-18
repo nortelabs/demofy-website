@@ -23,7 +23,7 @@ export default function CTA() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          priceId: 'price_1S7nVXALEPVqpLYAY88OTxHr', // Your Stripe Price ID ($9.99)
+          priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_ID,
           customerEmail: '', // Will be collected in checkout
           customerName: '', // Will be collected in checkout
           successUrl: `${window.location.origin}/success`,

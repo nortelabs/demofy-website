@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import ContactModal from "./ContactModal";
 
 /**
  * Header.jsx
@@ -18,6 +19,7 @@ import { useRouter } from "next/router";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const router = useRouter();
 
   // Close mobile menu when navigating
@@ -45,9 +47,12 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-8">
           <a href="#features" className="text-platinum hover:text-orange-web transition-colors duration-300 font-medium">Features</a>
           <a href="#pricing" className="text-platinum hover:text-orange-web transition-colors duration-300 font-medium">Pricing</a>
-          <a href="#help" className="text-platinum hover:text-orange-web transition-colors duration-300 font-medium">
-             Contact
-          </a>
+          <button 
+            onClick={() => setIsContactModalOpen(true)}
+            className="text-platinum hover:text-orange-web transition-colors duration-300 font-medium bg-transparent border-none cursor-pointer"
+          >
+            Contact
+          </button>
         </nav>
 
         {/* Mobile: right side actions */}
@@ -119,19 +124,27 @@ export default function Header() {
                 Pricing
               </a>
 
-              <a
-                href="#help"
-                onClick={() => setOpen(false)}
-                className="block px-4 py-3 rounded-xl text-white hover:text-orange-web hover:bg-oxford-blue/50 transition-all duration-300 font-medium"
+              <button
+                onClick={() => {
+                  setOpen(false);
+                  setIsContactModalOpen(true);
+                }}
+                className="block w-full text-left px-4 py-3 rounded-xl text-white hover:text-orange-web hover:bg-oxford-blue/50 transition-all duration-300 font-medium bg-transparent border-none cursor-pointer"
               >
                 Contact
-              </a>
+              </button>
 
            
             </nav>
           </div>
         </div>
       </div>
+
+      {/* Contact Modal */}
+      <ContactModal 
+        isOpen={isContactModalOpen} 
+        onClose={() => setIsContactModalOpen(false)} 
+      />
     </header>
   );
 }
