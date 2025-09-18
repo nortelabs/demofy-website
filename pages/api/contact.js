@@ -72,7 +72,8 @@ async function sendEmailViaMailgun({ name, email, subject, message }) {
   }
 
   const formData = new URLSearchParams();
-  formData.append('from', `${name} <${email}>`);
+  formData.append('from', `Demofy Contact Form <noreply@${mailgunDomain}>`);
+  formData.append('reply-to', `${name} <${email}>`);
   formData.append('to', toEmail);
   formData.append('subject', `[Demofy Contact] ${getSubjectText(subject)}`);
   formData.append('text', formatEmailText({ name, email, subject, message }));
