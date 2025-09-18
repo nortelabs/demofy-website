@@ -43,8 +43,8 @@ export default function Header() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
-          <a href="#features" className="text-platinum hover:text-orange-web transition-colors duration-300 font-medium">Features</a>
-          <a href="#pricing" className="text-platinum hover:text-orange-web transition-colors duration-300 font-medium">Pricing</a>
+          <a href="/#features" className="text-platinum hover:text-orange-web transition-colors duration-300 font-medium">Features</a>
+          <a href="/#pricing" className="text-platinum hover:text-orange-web transition-colors duration-300 font-medium">Pricing</a>
           <Link href="/contact" legacyBehavior>
             <a className="text-platinum hover:text-orange-web transition-colors duration-300 font-medium">
               Contact
@@ -55,7 +55,7 @@ export default function Header() {
         {/* Mobile: right side actions */}
         <div className="md:hidden flex items-center gap-2">
           <a
-            href="#download"
+            href="/download"
             className="btn-primary text-sm px-4 py-2 hidden sm:inline-flex"
           >
             Download
@@ -106,7 +106,7 @@ export default function Header() {
           <div className="glass-effect rounded-2xl p-6">
             <nav className="flex flex-col gap-4">
               <a
-                href="#features"
+                href="/#features"
                 onClick={() => setOpen(false)}
                 className="block px-4 py-3 rounded-xl text-white hover:text-orange-web hover:bg-oxford-blue/50 transition-all duration-300 font-medium"
               >
@@ -114,7 +114,7 @@ export default function Header() {
               </a>
 
               <a
-                href="#pricing"
+                href="/#pricing"
                 onClick={() => setOpen(false)}
                 className="block px-4 py-3 rounded-xl text-white hover:text-orange-web hover:bg-oxford-blue/50 transition-all duration-300 font-medium"
               >

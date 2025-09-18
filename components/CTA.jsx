@@ -107,7 +107,7 @@ export default function CTA() {
             </ul>
 
             <a
-              href="#download"
+              href="/download"
               className="btn-secondary text-lg w-full py-3 inline-flex items-center justify-center gap-3"
               aria-label="Download Demofy for free"
             >
