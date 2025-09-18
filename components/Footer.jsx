@@ -45,7 +45,7 @@ export default function Footer() {
             {/* Copyright and Legal Links */}
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-platinum text-sm">
-                © {year} Demofy. All rights reserved.
+                © {year} Demofy by Norte Labs. All rights reserved.
               </div>
               <div className="flex gap-6 text-sm">
                 <Link
