@@ -18,12 +18,18 @@ function MyApp({ Component, pageProps }) {
         <title>Demofy - iOS App Mockup & Demo Generator for macOS</title>
         <meta
           name="description"
-          content="Create stunning iOS app demos and mockups with Demofy. Record from Xcode Simulator, add device frames, trim videos, and export professional app previews on macOS."
+          content="Create stunning iOS app demos and mockups with Demofy. Record from Xcode Simulator, add device frames, trim videos, and export professional app previews on macOS. Built for developers who need reliable mockup generation."
         />
         <meta name="keywords" content="iOS app demo, mockup generator, Xcode simulator, app preview, video recording, macOS app, app marketing, iOS development" />
         <meta name="author" content="Demofy" />
         <meta name="robots" content="index, follow" />
         <meta name="theme-color" content="#db7536" />
+        
+        {/* Additional SEO Meta Tags */}
+        <meta name="application-name" content="Demofy" />
+        <meta name="apple-mobile-web-app-title" content="Demofy" />
+        <meta name="msapplication-TileColor" content="#db7536" />
+        <meta name="msapplication-TileImage" content="/assets/logo.svg" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
@@ -31,6 +37,9 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:title" content="Demofy - iOS App Mockup & Demo Generator" />
         <meta property="og:description" content="Create stunning iOS app demos and mockups with Demofy. Record from Xcode Simulator, add device frames, trim videos, and export professional app previews." />
         <meta property="og:image" content="https://demofyapp.com/assets/logo.svg" />
+        <meta property="og:image:alt" content="Demofy Logo - iOS App Mockup & Demo Generator" />
+        <meta property="og:image:width" content="1024" />
+        <meta property="og:image:height" content="1024" />
         <meta property="og:site_name" content="Demofy" />
         <meta property="og:locale" content="en_US" />
         
@@ -40,6 +49,7 @@ function MyApp({ Component, pageProps }) {
         <meta property="twitter:title" content="Demofy - iOS App Mockup & Demo Generator" />
         <meta property="twitter:description" content="Create stunning iOS app demos and mockups with Demofy. Record from Xcode Simulator, add device frames, trim videos, and export professional app previews." />
         <meta property="twitter:image" content="https://demofyapp.com/assets/logo.svg" />
+        <meta property="twitter:image:alt" content="Demofy Logo - iOS App Mockup & Demo Generator" />
         
         {/* Canonical URL */}
         <link rel="canonical" href="https://demofyapp.com/" />
