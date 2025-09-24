@@ -66,7 +66,8 @@ export default async function handler(req, res) {
 async function sendEmailViaSMTP({ name, email, subject, message }) {
   const gmailUser = process.env.GMAIL_USER;
   const gmailAppPassword = process.env.GMAIL_APP_PASSWORD;
-  const toEmail = process.env.CONTACT_EMAIL || 'support@demofyapp.com';
+  // For testing, send directly to your email instead of through forwarding
+  const toEmail = process.env.CONTACT_EMAIL || 'mmoise@nortelabs.org';
 
   if (!gmailUser || !gmailAppPassword) {
     throw new Error('Gmail configuration missing. Please set GMAIL_USER and GMAIL_APP_PASSWORD environment variables.');
