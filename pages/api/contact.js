@@ -1,7 +1,8 @@
 // pages/api/contact.js
-// Contact form API endpoint with Mailgun integration
+// Contact form API endpoint with Google Workspace SMTP integration
 
 import { runMiddleware, rateLimiter, corsMiddleware, setSecurityHeaders } from '../../lib/security';
+import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
   // Apply security headers
@@ -35,21 +36,21 @@ export default async function handler(req, res) {
       });
     }
 
-    // Send email via Mailgun
-    const mailgunResponse = await sendEmailViaMailgun({
+    // Send email via Google Workspace SMTP
+    const emailResponse = await sendEmailViaSMTP({
       name,
       email,
       subject,
       message
     });
 
-    if (mailgunResponse.success) {
+    if (emailResponse.success) {
       res.json({
         success: true,
         message: 'Message sent successfully'
       });
     } else {
-      throw new Error(mailgunResponse.error || 'Failed to send email');
+      throw new Error(emailResponse.error || 'Failed to send email');
     }
 
   } catch (error) {
@@ -61,42 +62,39 @@ export default async function handler(req, res) {
   }
 }
 
-// Function to send email via Mailgun
-async function sendEmailViaMailgun({ name, email, subject, message }) {
-  const mailgunDomain = process.env.MAILGUN_DOMAIN;
-  const mailgunApiKey = process.env.MAILGUN_API_KEY;
+// Function to send email via Google Workspace SMTP
+async function sendEmailViaSMTP({ name, email, subject, message }) {
+  const gmailUser = process.env.GMAIL_USER;
+  const gmailAppPassword = process.env.GMAIL_APP_PASSWORD;
   const toEmail = process.env.CONTACT_EMAIL || 'support@demofyapp.com';
 
-  if (!mailgunDomain || !mailgunApiKey) {
-    throw new Error('Mailgun configuration missing');
+  if (!gmailUser || !gmailAppPassword) {
+    throw new Error('Gmail configuration missing. Please set GMAIL_USER and GMAIL_APP_PASSWORD environment variables.');
   }
 
-  const formData = new URLSearchParams();
-  formData.append('from', `Demofy Contact Form <noreply@${mailgunDomain}>`);
-  formData.append('reply-to', `${name} <${email}>`);
-  formData.append('to', toEmail);
-  formData.append('subject', `[Demofy Contact] ${getSubjectText(subject)}`);
-  formData.append('text', formatEmailText({ name, email, subject, message }));
-  formData.append('html', formatEmailHTML({ name, email, subject, message }));
+  // Create transporter using Google Workspace SMTP
+  const transporter = nodemailer.createTransporter({
+    service: 'gmail',
+    auth: {
+      user: gmailUser,
+      pass: gmailAppPassword
+    }
+  });
+
+  const mailOptions = {
+    from: `Demofy Contact Form <${gmailUser}>`,
+    replyTo: `${name} <${email}>`,
+    to: toEmail,
+    subject: `[Demofy Contact] ${getSubjectText(subject)}`,
+    text: formatEmailText({ name, email, subject, message }),
+    html: formatEmailHTML({ name, email, subject, message })
+  };
 
   try {
-    const response = await fetch(`https://api.mailgun.net/v3/${mailgunDomain}/messages`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Basic ${Buffer.from(`api:${mailgunApiKey}`).toString('base64')}`,
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: formData
-    });
-
-    if (response.ok) {
-      const result = await response.json();
-      return { success: true, messageId: result.id };
-    } else {
-      const error = await response.text();
-      return { success: false, error: `Mailgun API error: ${response.status} - ${error}` };
-    }
+    const result = await transporter.sendMail(mailOptions);
+    return { success: true, messageId: result.messageId };
   } catch (error) {
+    console.error('SMTP Error:', error);
     return { success: false, error: error.message };
   }
 }
