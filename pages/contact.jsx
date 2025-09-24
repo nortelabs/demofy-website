@@ -140,7 +140,7 @@ export default function Contact() {
                           value={formData.email}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
+                          className="w-full px-4 py-4 rounded-xl border border-slate-300 text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
                           placeholder="your@email.com"
                         />
                       </div>
@@ -177,7 +177,7 @@ export default function Contact() {
                         value={formData.message}
                         onChange={handleChange}
                         required
-                        rows={6}
+                        rows={10}
                         className="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all resize-none"
                         placeholder="Describe your issue or question..."
                       />

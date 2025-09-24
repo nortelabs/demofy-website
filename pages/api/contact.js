@@ -73,7 +73,7 @@ async function sendEmailViaSMTP({ name, email, subject, message }) {
   }
 
   // Create transporter using Google Workspace SMTP
-  const transporter = nodemailer.createTransporter({
+  const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
       user: gmailUser,
