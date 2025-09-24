@@ -91,7 +91,7 @@ async function sendEmailViaSMTP({ name, email, subject, message }) {
   }
 
   const mailOptions = {
-    from: `${name} <${email}>`,
+    from: `"${name}" <${gmailUser}>`,
     replyTo: `${name} <${email}>`,
     to: toEmail,
     subject: `[Demofy Contact] ${getSubjectText(subject)}`,
