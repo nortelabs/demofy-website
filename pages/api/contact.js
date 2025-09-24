@@ -81,6 +81,15 @@ async function sendEmailViaSMTP({ name, email, subject, message }) {
     }
   });
 
+  // Verify transporter configuration
+  try {
+    await transporter.verify();
+    console.log('SMTP transporter verified successfully');
+  } catch (verifyError) {
+    console.error('SMTP verification failed:', verifyError);
+    return { success: false, error: `SMTP verification failed: ${verifyError.message}` };
+  }
+
   const mailOptions = {
     from: `Demofy Contact Form <${gmailUser}>`,
     replyTo: `${name} <${email}>`,
@@ -91,10 +100,24 @@ async function sendEmailViaSMTP({ name, email, subject, message }) {
   };
 
   try {
+    console.log('Attempting to send email with options:', {
+      from: mailOptions.from,
+      to: mailOptions.to,
+      subject: mailOptions.subject,
+      gmailUser: gmailUser ? 'Set' : 'Not set',
+      gmailAppPassword: gmailAppPassword ? 'Set' : 'Not set'
+    });
+    
     const result = await transporter.sendMail(mailOptions);
+    console.log('Email sent successfully:', result.messageId);
     return { success: true, messageId: result.messageId };
   } catch (error) {
-    console.error('SMTP Error:', error);
+    console.error('SMTP Error details:', {
+      message: error.message,
+      code: error.code,
+      response: error.response,
+      responseCode: error.responseCode
+    });
     return { success: false, error: error.message };
   }
 }
