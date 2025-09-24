@@ -215,7 +215,7 @@ export default function Download() {
 
               <div>
                 <h4 className="font-semibold text-slate-900 mb-2">What if I need help?</h4>
-                <p className="text-slate-600 text-sm mb-4">Contact support at <a href="mailto:support@demofyapp.com" className="text-orange-web hover:text-orange-web/80 transition-colors duration-300">support@demofyapp.com</a> for assistance.</p>
+                <p className="text-slate-600 text-sm mb-4">Contact support at <a href="mailto:contact@demofyapp.com" className="text-orange-web hover:text-orange-web/80 transition-colors duration-300">contact@demofyapp.com</a> for assistance.</p>
 
                 <h4 className="font-semibold text-slate-900 mb-2">How do I upgrade to Pro?</h4>
                 <p className="text-slate-600 text-sm">You can upgrade directly from the app or visit our pricing page for more details.</p>

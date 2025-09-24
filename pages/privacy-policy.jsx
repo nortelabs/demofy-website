@@ -50,7 +50,7 @@ export default function PrivacyPolicy() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold mb-4">5. Contact Us</h2>
               <p className="mb-4">
-                If you have any questions about this Privacy Policy, please contact us at support@demofyapp.com
+                If you have any questions about this Privacy Policy, please contact us at contact@demofyapp.com
               </p>
             </section>
           </div>

@@ -240,8 +240,8 @@ export default function Contact() {
                     <div>
                       <h4 className="font-semibold text-slate-900 mb-1">Email Support</h4>
                       <p className="text-slate-600 text-sm mb-2">Get help with installation or licensing issues</p>
-                      <a href="mailto:support@demofyapp.com" className="text-orange-600 hover:text-orange-700 font-medium text-sm">
-                        support@demofyapp.com
+                      <a href="mailto:contact@demofyapp.com" className="text-orange-600 hover:text-orange-700 font-medium text-sm">
+                        contact@demofyapp.com
                       </a>
                     </div>
                   </div>
