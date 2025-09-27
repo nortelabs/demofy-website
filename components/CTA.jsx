@@ -133,7 +133,7 @@ export default function CTA() {
             </div>
 
             <div className="text-center mb-6">
-              <div className="text-4xl font-black text-white mb-2">$9.99</div>
+              <div className="text-4xl font-black text-white mb-2">$10</div>
               <div className="text-lg text-platinum">
                 One-time payment • No subscriptions •
                 <br />
