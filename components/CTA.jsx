@@ -15,7 +15,6 @@ export default function CTA() {
   const [isLoading, setIsLoading] = useState(false);
 
   const handlePurchase = async () => {
-    console.log('Environment variable:', process.env.NEXT_PUBLIC_STRIPE_PRICE_ID);
     setIsLoading(true);
     try {
       const response = await fetch('/api/checkout', {
@@ -33,6 +32,7 @@ export default function CTA() {
       });
 
       const { url } = await response.json();
+      console.log('API Response:', { url, response });
       window.location.href = url;
     } catch (error) {
       console.error('Purchase failed:', error);
