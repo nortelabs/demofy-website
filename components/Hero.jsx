@@ -43,10 +43,8 @@ export default function Hero() {
         {/* Centered heading and copy */}
         <div className="text-center max-w-5xl mx-auto">
           <motion.div variants={itemFadeUp} className="mb-6">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[0.9] tracking-tight mb-8">
-              <span className="text-white">Demo-ready videos,</span>
-              <br />
-              <span className="gradient-text">without the hassle.</span>
+            <h1 className="text-4xl sm:text-4xl lg:text-6xl xl:text-5xl font-black leading-[0.9] tracking-tight mb-8">
+              <span className="text-white">Demo-ready videos, without the hassle.</span>
             </h1>
             <p className="text-xl lg:text-2xl text-platinum max-w-3xl mx-auto leading-relaxed font-light">
               Record from iOS Simulator and preview with frames for free.
@@ -54,9 +52,9 @@ export default function Hero() {
             </p>
           </motion.div>
 
-          <motion.div variants={itemFadeUp} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <motion.div variants={itemFadeUp} className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <a
-              href="#download"
+              href="#pricing"
               className="btn-primary text-lg inline-flex items-center gap-3"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -64,13 +62,30 @@ export default function Hero() {
               </svg>
               Try Free Now
             </a>
-            <a
-              href="#demo-video"
-              className="btn-secondary text-lg inline-flex items-center gap-3"
-            >
-             
-              Watch Demo
-            </a>
+          </motion.div>
+
+          {/* Demo Video */}
+          <motion.div 
+            variants={itemFadeUp}
+            className="relative max-w-5xl mx-auto"
+          >
+            <div className="relative bg-gray-900 rounded-2xl overflow-hidden shadow-2xl aspect-video">
+              <video
+                className="w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label="Demofy demo video"
+              >
+                <source src="/assets/demo_video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              
+              {/* Subtle gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none"></div>
+            </div>
           </motion.div>
         </div>
       </motion.div>

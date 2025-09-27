@@ -1,7 +1,7 @@
 // pages/api/contact.js
 // Contact form API endpoint with Google Workspace SMTP integration
 
-import { runMiddleware, rateLimiter, corsMiddleware, setSecurityHeaders } from '../../lib/security';
+import { runMiddleware, contactRateLimiter, corsMiddleware, setSecurityHeaders } from '../../lib/security';
 import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
@@ -12,7 +12,7 @@ export default async function handler(req, res) {
   await runMiddleware(req, res, corsMiddleware);
 
   // Apply rate limiting
-  await runMiddleware(req, res, rateLimiter);
+  await runMiddleware(req, res, contactRateLimiter);
 
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -84,7 +84,9 @@ async function sendEmailViaSMTP({ name, email, subject, message }) {
   // Verify transporter configuration
   try {
     await transporter.verify();
-    console.log('SMTP transporter verified successfully');
+    if (process.env.NODE_ENV === 'development') {
+      console.log('SMTP transporter verified successfully');
+    }
   } catch (verifyError) {
     console.error('SMTP verification failed:', verifyError);
     return { success: false, error: `SMTP verification failed: ${verifyError.message}` };
@@ -100,16 +102,20 @@ async function sendEmailViaSMTP({ name, email, subject, message }) {
   };
 
   try {
-    console.log('Attempting to send email with options:', {
-      from: mailOptions.from,
-      to: mailOptions.to,
-      subject: mailOptions.subject,
-      gmailUser: gmailUser ? 'Set' : 'Not set',
-      gmailAppPassword: gmailAppPassword ? 'Set' : 'Not set'
-    });
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Attempting to send email with options:', {
+        from: mailOptions.from,
+        to: mailOptions.to,
+        subject: mailOptions.subject,
+        gmailUser: gmailUser ? 'Set' : 'Not set',
+        gmailAppPassword: gmailAppPassword ? 'Set' : 'Not set'
+      });
+    }
     
     const result = await transporter.sendMail(mailOptions);
-    console.log('Email sent successfully:', result.messageId);
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Email sent successfully:', result.messageId);
+    }
     return { success: true, messageId: result.messageId };
   } catch (error) {
     console.error('SMTP Error details:', {

@@ -67,7 +67,7 @@ function MyApp({ Component, pageProps }) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.35, ease: "easeOut" }}
-          className="min-h-screen bg-muted-1 text-slate-900 antialiased"
+          className="min-h-screen bg-dark-bg text-white antialiased"
         >
           <Component {...pageProps} />
         </motion.div>

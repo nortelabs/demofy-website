@@ -80,7 +80,7 @@ export default async function handler(req, res) {
     console.error('License API error:', error);
     res.status(500).json({
       error: 'Failed to fetch license key',
-      message: error.message
+      message: process.env.NODE_ENV === 'development' ? error.message : 'Internal server error'
     });
   }
 }

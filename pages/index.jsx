@@ -2,7 +2,6 @@ import React from "react";
 import Head from "next/head";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
-import DemoVideo from "../components/DemoVideo";
 import Features from "../components/Features";
 import CTA from "../components/CTA";
 import Footer from "../components/Footer";
@@ -43,8 +42,6 @@ export default function Home() {
         {/* Hero with animated device mockup */}
         <Hero />
 
-        {/* Demo video section */}
-        <DemoVideo />
 
         {/* Feature grid */}
         <Features />

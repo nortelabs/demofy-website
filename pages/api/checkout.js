@@ -76,7 +76,7 @@ export default async function handler(req, res) {
     console.error('Checkout API error:', error);
     res.status(500).json({
       error: 'Failed to create checkout session',
-      message: error.message
+      message: process.env.NODE_ENV === 'development' ? error.message : 'Internal server error'
     });
   }
 }

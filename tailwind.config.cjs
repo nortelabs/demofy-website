@@ -38,9 +38,8 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ["Wix Madefor Text", "-apple-system", "BlinkMacSystemFont", "ui-sans-serif", "system-ui", "Segoe UI", "Helvetica", "Arial"],
-        rem: ["REM", "sans-serif"],
-        recursive: ["Recursive", "monospace"]
+        sans: ["Chivo", "sans-serif"],
+        chivo: ["Chivo", "sans-serif"]
       },
       boxShadow: {
         screen: "0 20px 40px rgba(0, 0, 0, 0.3)",

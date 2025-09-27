@@ -35,7 +35,6 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <Link href="/" legacyBehavior>
             <a className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-web rounded-lg">
-              
               <span className="font-bold text-white text-2xl">Demofy</span>
             </a>
           </Link>
@@ -126,21 +125,19 @@ export default function Header() {
                 Pricing
               </a>
 
-              <Link href="/contact">
-                <a
-                  onClick={() => setOpen(false)}
-                  className="block px-4 py-3 rounded-xl text-white hover:text-orange-web hover:bg-oxford-blue/50 transition-all duration-300 font-medium"
-                >
-                  Contact
-                </a>
+              <Link 
+                href="/contact"
+                onClick={() => setOpen(false)}
+                className="block px-4 py-3 rounded-xl text-white hover:text-orange-web hover:bg-oxford-blue/50 transition-all duration-300 font-medium"
+              >
+                Contact
               </Link>
-              <Link href="https://demofyapp.featurebase.app/">
-                <a
-                  onClick={() => setOpen(false)}
-                  className="block px-4 py-3 rounded-xl text-white hover:text-orange-web hover:bg-oxford-blue/50 transition-all duration-300 font-medium"
-                >
-                  Report Bugs
-                </a>
+              <Link 
+                href="https://demofyapp.featurebase.app/"
+                onClick={() => setOpen(false)}
+                className="block px-4 py-3 rounded-xl text-white hover:text-orange-web hover:bg-oxford-blue/50 transition-all duration-300 font-medium"
+              >
+                Report Bugs
               </Link>
             </nav>
           </div>

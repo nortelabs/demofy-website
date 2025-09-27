@@ -32,7 +32,9 @@ export default function CTA() {
       });
 
       const { url } = await response.json();
-      console.log('API Response:', { url, response });
+      if (process.env.NODE_ENV === 'development') {
+        console.log('API Response:', { url, response });
+      }
       window.location.href = url;
     } catch (error) {
       console.error('Purchase failed:', error);
@@ -45,7 +47,7 @@ export default function CTA() {
   return (
     <section
       id="pricing"
-      className="py-30 bg-dark-bg relative overflow-hidden"
+      className="pt-30 pb-40 bg-dark-bg relative overflow-hidden"
       aria-labelledby="pricing-heading"
     >
       {/* Background effects */}
@@ -138,7 +140,7 @@ export default function CTA() {
               <div className="text-lg text-platinum">
                 One-time payment • No subscriptions •
                 <br />
-                <b>30 day money back guarantee</b>
+                <b>14 day money back guarantee</b>
               </div>
             </div>
 

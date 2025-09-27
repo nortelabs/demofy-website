@@ -91,7 +91,9 @@ export default async function handler(req, res) {
       console.error('Failed to mark webhook as failed:', markError);
     }
     
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ 
+      error: process.env.NODE_ENV === 'development' ? error.message : 'Internal server error' 
+    });
   }
 }
 
