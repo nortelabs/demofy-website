@@ -50,6 +50,11 @@ export default function Header() {
               Contact
             </a>
           </Link>
+          <Link href="https://demofyapp.featurebase.app/" legacyBehavior>
+            <a className="text-platinum hover:text-orange-web transition-colors duration-300 font-medium">
+              Report Bugs
+            </a>
+          </Link>
         </nav>
 
         {/* Mobile: right side actions */}
@@ -121,7 +126,7 @@ export default function Header() {
                 Pricing
               </a>
 
-              <Link href="/contact" legacyBehavior>
+              <Link href="/contact">
                 <a
                   onClick={() => setOpen(false)}
                   className="block px-4 py-3 rounded-xl text-white hover:text-orange-web hover:bg-oxford-blue/50 transition-all duration-300 font-medium"
@@ -129,8 +134,14 @@ export default function Header() {
                   Contact
                 </a>
               </Link>
-
-           
+              <Link href="https://demofyapp.featurebase.app/">
+                <a
+                  onClick={() => setOpen(false)}
+                  className="block px-4 py-3 rounded-xl text-white hover:text-orange-web hover:bg-oxford-blue/50 transition-all duration-300 font-medium"
+                >
+                  Report Bugs
+                </a>
+              </Link>
             </nav>
           </div>
         </div>

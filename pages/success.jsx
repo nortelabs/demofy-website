@@ -322,7 +322,6 @@ export default function Success() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-slate-900 mb-1">Email Support</h3>
-                  <p className="text-slate-600 text-sm mb-2">Get help with installation or licensing issues</p>
                   <a href="mailto:support@demofy.app" className="text-orange-600 hover:text-orange-700 font-medium text-sm">
                     support@demofy.app
                   </a>
@@ -336,10 +335,9 @@ export default function Success() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-900 mb-1">Documentation</h3>
-                  <p className="text-slate-600 text-sm mb-2">Learn how to use Demofy effectively</p>
-                  <a href="/docs" className="text-orange-600 hover:text-orange-700 font-medium text-sm">
-                    View Documentation
+                  <h3 className="font-semibold text-slate-900 mb-1">Report Bugs and Feature Requests</h3>
+                  <a href="https://demofyapp.featurebase.app/" className="text-orange-600 hover:text-orange-700 font-medium text-sm">
+                    Click Here
                   </a>
                 </div>
               </div>
