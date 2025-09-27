@@ -24,6 +24,7 @@ export default function CTA() {
         },
         body: JSON.stringify({
           priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_ID,
+          debug: { env: process.env.NEXT_PUBLIC_STRIPE_PRICE_ID},
           customerEmail: '', // Will be collected in checkout
           customerName: '', // Will be collected in checkout
           successUrl: `${window.location.origin}/success`,
