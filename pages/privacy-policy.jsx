@@ -6,6 +6,7 @@ export default function PrivacyPolicy() {
       <Head>
         <title>Privacy Policy - Demofy</title>
         <meta name="description" content="Privacy Policy for Demofy" />
+        <link rel="canonical" href="https://demofyapp.com/privacy-policy" />
       </Head>
 
       <div className="min-h-screen bg-gray-900 text-white">

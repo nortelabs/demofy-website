@@ -51,8 +51,7 @@ function MyApp({ Component, pageProps }) {
         <meta property="twitter:image" content="https://demofyapp.com/assets/logo.svg" />
         <meta property="twitter:image:alt" content="Demofy Logo - iOS App Mockup & Demo Generator" />
         
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://demofyapp.com/" />
+        {/* Canonical URL - will be overridden by individual pages */}
         
         {/* Favicon */}
         <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />

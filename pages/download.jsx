@@ -14,6 +14,7 @@ export default function Download() {
           content="Download Demofy for free and start creating beautiful app demos. Record from iOS Simulator with live preview and frames."
         />
         <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
+        <link rel="canonical" href="https://demofyapp.com/download" />
       </Head>
 
       <Header />

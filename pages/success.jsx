@@ -129,6 +129,7 @@ export default function Success() {
           content="Thank you for purchasing Demofy! Download your app and get started creating amazing demos."
         />
         <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
+        <link rel="canonical" href="https://demofyapp.com/success" />
       </Head>
 
       <Header />

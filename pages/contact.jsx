@@ -59,6 +59,7 @@ export default function Contact() {
           content="Get in touch with the Demofy team. We're here to help with technical support, billing questions, feature requests, and more."
         />
         <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
+        <link rel="canonical" href="https://demofyapp.com/contact" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />

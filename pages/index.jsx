@@ -27,6 +27,7 @@ export default function Home() {
         />
         <meta name="theme-color" content="#db7536" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="canonical" href="https://demofyapp.com/" />
       </Head>
 
       <a

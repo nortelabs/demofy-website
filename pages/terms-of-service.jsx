@@ -6,6 +6,7 @@ export default function TermsOfService() {
       <Head>
         <title>Terms of Service - Demofy</title>
         <meta name="description" content="Terms of Service for Demofy" />
+        <link rel="canonical" href="https://demofyapp.com/terms-of-service" />
       </Head>
 
       <div className="min-h-screen bg-gray-900 text-white">
