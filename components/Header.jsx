@@ -46,12 +46,6 @@ export default function Header() {
           <a href="/#features" className="text-platinum hover:text-orange-web transition-colors duration-300 font-medium">Features</a>
           <a href="/#pricing" className="text-platinum hover:text-orange-web transition-colors duration-300 font-medium">Pricing</a>
           <Link
-            href="/contact"
-            className="text-platinum hover:text-orange-web transition-colors duration-300 font-medium"
-          >
-            Contact
-          </Link>
-          <Link
             href="https://demofyapp.featurebase.app/"
             className="text-platinum hover:text-orange-web transition-colors duration-300 font-medium"
           >
@@ -127,14 +121,6 @@ export default function Header() {
               >
                 Pricing
               </a>
-
-              <Link 
-                href="/contact"
-                onClick={() => setOpen(false)}
-                className="block px-4 py-3 rounded-xl text-white hover:text-orange-web hover:bg-oxford-blue/50 transition-all duration-300 font-medium"
-              >
-                Contact
-              </Link>
               <Link 
                 href="https://demofyapp.featurebase.app/"
                 onClick={() => setOpen(false)}
