@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import Script from "next/script";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Features from "../components/Features";
@@ -16,6 +17,8 @@ import Footer from "../components/Footer";
  */
 
 export default function Home() {
+  const featurebaseAppId = process.env.NEXT_PUBLIC_FEATUREBASE_APP_ID;
+
   return (
     <>
       <Head>
@@ -29,6 +32,25 @@ export default function Home() {
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <link rel="canonical" href="https://demofyapp.com/" />
       </Head>
+
+      {featurebaseAppId && (
+        <>
+          <Script id="featurebase-messenger-loader" strategy="afterInteractive">
+            {`
+              !(function(e,t){var a="featurebase-sdk";function n(){if(!t.getElementById(a)){var e=t.createElement("script");(e.id=a),(e.src="https://do.featurebase.app/js/sdk.js"),t.getElementsByTagName("script")[0].parentNode.insertBefore(e,t.getElementsByTagName("script")[0])}};"function"!=typeof e.Featurebase&&(e.Featurebase=function(){(e.Featurebase.q=e.Featurebase.q||[]).push(arguments)}),"complete"===t.readyState||"interactive"===t.readyState?n():t.addEventListener("DOMContentLoaded",n)})(window,document);
+            `}
+          </Script>
+          <Script id="featurebase-messenger-init" strategy="afterInteractive">
+            {`
+              window.Featurebase("boot", {
+                appId: "${featurebaseAppId}",
+                theme: "light",
+                language: "en"
+              });
+            `}
+          </Script>
+        </>
+      )}
 
       <a
         href="#main"

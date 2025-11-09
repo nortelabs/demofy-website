@@ -33,10 +33,11 @@ export default function Header() {
     <header className="bg-dark-bg/90 z-40 fixed w-full top-0 backdrop-blur-xl border-b border-oxford-blue/50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Link href="/" legacyBehavior>
-            <a className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-web rounded-lg">
-              <span className="font-bold text-white text-2xl">Demofy</span>
-            </a>
+          <Link
+            href="/"
+            className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-web rounded-lg"
+          >
+            <span className="font-bold text-white text-2xl">Demofy</span>
           </Link>
         </div>
 
@@ -44,15 +45,17 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-8">
           <a href="/#features" className="text-platinum hover:text-orange-web transition-colors duration-300 font-medium">Features</a>
           <a href="/#pricing" className="text-platinum hover:text-orange-web transition-colors duration-300 font-medium">Pricing</a>
-          <Link href="/contact" legacyBehavior>
-            <a className="text-platinum hover:text-orange-web transition-colors duration-300 font-medium">
-              Contact
-            </a>
+          <Link
+            href="/contact"
+            className="text-platinum hover:text-orange-web transition-colors duration-300 font-medium"
+          >
+            Contact
           </Link>
-          <Link href="https://demofyapp.featurebase.app/" legacyBehavior>
-            <a className="text-platinum hover:text-orange-web transition-colors duration-300 font-medium">
-              Report Bugs
-            </a>
+          <Link
+            href="https://demofyapp.featurebase.app/"
+            className="text-platinum hover:text-orange-web transition-colors duration-300 font-medium"
+          >
+            Report Bugs
           </Link>
         </nav>
 
